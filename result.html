@@ -674,23 +674,82 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
 						<div class="" style="width:50vw; margin-top: -100px; margin-left: 150px;">
 						   <table width="50%" border="1" cellpadding="5" style="margin-top: 100px;">
   <tbody>
-	  <form action="view.php" method="post">
+	<table width="50%" border="1" cellpadding="5">
+  <tbody>
+    <form id="resultForm">
+      <tr>
+        <td>Roll No</td>
+        <td><input type="text" id="roll" name="roll" placeholder="Enter Roll No"></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input type="text" id="name" name="name" placeholder="Enter Name"></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="text-align:center;">
+          <input type="button" value="Submit" onclick="displayResult()" style="padding: 8px 15px; background: #0bc0e9; border: 0px; font-weight: bold;">
+        </td>
+      </tr>
+    </form>
+  </tbody>
+</table>
+
+<!-- Result Table -->
+<table id="resultTable" border="1" cellpadding="5" style="display:none; margin-top: 20px;">
+  <thead>
     <tr>
-      <td>Roll No</td>
-      <td><input type="text" name="roll" value="" placeholder="Enter Roll No"></td>
+      <th>NAME</th>
+      <th>Father's Name</th>
+      <th>Roll No</th>
+      <th>Email</th>
+      <th>Mark(stage-1)</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
-      <td>Name</td>
-      <td><input type="text" name="name" value="" placeholder="Enter Name"></td>
+      <td id="resName"></td>
+      <td id="resFather"></td>
+      <td id="resRoll"></td>
+      <td id="resEmail"></td>
+      <td id="resMark"></td>
     </tr>
-		<tr>
-		  <td><input type="submit" value="Submit" style="    padding: 8px 15px;
-    background: #0bc0e9;
-    border: 0px;
-    font-weight: bold;"></td>
-		  </tr>
-		  
-  </form>
+  </tbody>
+</table>
+
+<!-- No Record Message -->
+<p id="noRecord" style="display:none; color:red; font-weight:bold;">No record found!</p>
+
+<script>
+  // Candidate database (Replace with actual data)
+  const candidates = [
+    { name: "SASMITA ADHEK", roll: "2501245670", father: "MADHUSUDAN ADHEK", email: "adheksasmita235@gmail.com", mark: "85" },
+    { name: "KABITARANI JENA ", roll: "2501239780", father: "DAYANIDHI JENA", email: "kabitaranijena61@gmail.com", mark: "91" },
+    { name: "Bob Johnson", roll: "789012", father: "David Johnson", email: "bob@example.com", mark: "78" }
+  ];
+
+  function displayResult() {
+    const rollInput = document.getElementById("roll").value.trim();
+    const nameInput = document.getElementById("name").value.trim();
+
+    // Find candidate by roll number and name
+    const candidate = candidates.find(c => c.roll === rollInput && c.name.toLowerCase() === nameInput.toLowerCase());
+
+    if (candidate) {
+      document.getElementById("resName").innerText = candidate.name;
+      document.getElementById("resFather").innerText = candidate.father;
+      document.getElementById("resRoll").innerText = candidate.roll;
+      document.getElementById("resEmail").innerText = candidate.email;
+      document.getElementById("resMark").innerText = candidate.mark;
+
+      document.getElementById("resultTable").style.display = "block";
+      document.getElementById("noRecord").style.display = "none";
+    } else {
+      document.getElementById("resultTable").style.display = "none";
+      document.getElementById("noRecord").style.display = "block";
+    }
+  }
+</script>
+
   </tbody>
 </table> 
 						
