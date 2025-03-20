@@ -702,7 +702,8 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
       <th>Father's Name</th>
       <th>Roll No</th>
       <th>Email</th>
-      <th>Mark(stage-1)</th>
+      <th>Mark (stage-1)</th>
+	  <th>Mark (stage-2)</th>
     </tr>
   </thead>
   <tbody>
@@ -712,6 +713,7 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
       <td id="resRoll"></td>
       <td id="resEmail"></td>
       <td id="resMark"></td>
+	  <td id="resMark2"></td>
     </tr>
   </tbody>
 </table>
@@ -722,9 +724,9 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
 <script>
   // Candidate database (Replace with actual data)
   const candidates = [
-    { name: "SASMITA ADHEK", roll: "2501245670", father: "MADHUSUDAN ADHEK", email: "adheksasmita235@gmail.com", mark: "85" },
-    { name: "KABITARANI JENA ", roll: "2501239780", father: "DAYANIDHI JENA", email: "kabitaranijena61@gmail.com", mark: "91" },
-    { name: "Bob Johnson", roll: "789012", father: "David Johnson", email: "bob@example.com", mark: "78" }
+    { name: "SASMITA ADHEK", roll: "2501245670", father: "MADHUSUDAN ADHEK", email: "adheksasmita235@gmail.com", mark: "85", mark2: "78" },
+    { name: "KABITARANI JENA ", roll: "2501239780", father: "DAYANIDHI JENA", email: "kabitaranijena61@gmail.com", mark: "91", mark2: "83" },
+    { name: "Bob Johnson", roll: "789012", father: "David Johnson", email: "bob@example.com", mark: "78" , mark: "56"}
   ];
 
   function displayResult() {
@@ -740,6 +742,7 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
       document.getElementById("resRoll").innerText = candidate.roll;
       document.getElementById("resEmail").innerText = candidate.email;
       document.getElementById("resMark").innerText = candidate.mark;
+	  document.getElementById("resMark2").innerText = candidate.mark2;
 
       document.getElementById("resultTable").style.display = "block";
       document.getElementById("noRecord").style.display = "none";
