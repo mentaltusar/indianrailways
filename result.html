@@ -700,20 +700,23 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
     <tr>
       <th>NAME</th>
       <th>Father's Name</th>
+	    <th>Date of Birth</th>
       <th>Roll No</th>
-      <th>Email</th>
-      <th>Mark (stage-1)</th>
-	  <th>Mark (stage-2)</th>
+	    <th>Post Applied</th>
+      
+      <th>Position</th>
+	  <th>Venue</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td id="resName"></td>
       <td id="resFather"></td>
+      <td id="resDob"></td>
       <td id="resRoll"></td>
-      <td id="resEmail"></td>
-      <td id="resMark"></td>
-	  <td id="resMark2"></td>
+      <td id="resPost"></td>
+	  <td id="resPosition"></td>
+	    <td id="resVenue"></td>
     </tr>
   </tbody>
 </table>
@@ -724,9 +727,10 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
 <script>
   // Candidate database (Replace with actual data)
   const candidates = [
-    { name: "SASMITA ADHEK", roll: "2501245670", father: "MADHUSUDAN ADHEK", email: "adheksasmita235@gmail.com", mark: "85", mark2: "78" },
-    { name: "KABITARANI JENA", roll: "2501239780", father: "DAYANIDHI JENA", email: "kabitaranijena61@gmail.com", mark: "91", mark2: "83" },
-    { name: "GITANJALI MOHAPATRA", roll: "2501239360", father: "SANGRAM KISHORE SAHOO", email: "gitanjalimohapatra0503@gmail.com", mark: "94" , mark2: "86"}
+    { name: "SASMITA ADHEK", roll: "2501245670",DOB:"", father: "MADHUSUDAN ADHEK", Post:"", Position: "", Venue: "" },
+    { name: "KABITARANI JENA", roll: "2501239780",DOB:="", father: "DAYANIDHI JENA", Post: "", Position: "", Venue: "" },
+    { name: "GITANJALI MOHAPATRA", roll: "2501239360",DOB:"", father: "SANGRAM KISHORE SAHOO", Post: "", Position: "" , Venue:""},
+	  {name:"RAJESH BHOI",roll:"2501239360",DOB:"17/02/1980",father:"KAMADEBA BHOI",Post:"Group-D",Position:"Qualified",Venue:"Eastern Railway-Indian Railway"}
   ];
 
   function displayResult() {
@@ -740,9 +744,10 @@ window.location="https://enquiry.indianrail.com/mntes/q?opt=TrainRunning&amp;sub
       document.getElementById("resName").innerText = candidate.name;
       document.getElementById("resFather").innerText = candidate.father;
       document.getElementById("resRoll").innerText = candidate.roll;
-      document.getElementById("resEmail").innerText = candidate.email;
-      document.getElementById("resMark").innerText = candidate.mark;
-	  document.getElementById("resMark2").innerText = candidate.mark2;
+      document.getElementById("resDob").innerText = candidate.DOB;
+      document.getElementById("resPosition").innerText = candidate.Position;
+	  document.getElementById("resPost").innerText = candidate.Post;
+	    document.getElementById("resVenue").innerText=candidate.Venue
 
       document.getElementById("resultTable").style.display = "block";
       document.getElementById("noRecord").style.display = "none";
